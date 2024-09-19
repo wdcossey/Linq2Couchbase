@@ -1,52 +1,52 @@
 ﻿using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Couchbase.Linq.UnitTests.Documents
 {
     public class Brewery
     {
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string Name { get; set; }
 
-        [JsonProperty("city")]
+        [JsonPropertyName("city")]
         public string City { get; set; }
 
-        [JsonProperty("state")]
+        [JsonPropertyName("state")]
         public string State { get; set; }
 
-        [JsonProperty("code")]
+        [JsonPropertyName("code")]
         public string Code { get; set; }
 
-        [JsonProperty("country")]
+        [JsonPropertyName("country")]
         public string Country { get; set; }
 
-        [JsonProperty("phone")]
+        [JsonPropertyName("phone")]
         public string Phone { get; set; }
 
-        [JsonProperty("website")]
+        [JsonPropertyName("website")]
         public string Website { get; set; }
 
-        [JsonProperty("type")]
+        [JsonPropertyName("type")]
         public string Type { get; set; }
 
-        [JsonProperty("updated")]
+        [JsonPropertyName("updated")]
         public DateTime Updated { get; set; }
 
-        [JsonProperty("description")]
+        [JsonPropertyName("description")]
         public string Description { get; set; }
 
-        [JsonProperty("address")]
+        [JsonPropertyName("address")]
         public List<string> Address { get; set; }
 
-        [JsonProperty("geo")]
+        [JsonPropertyName("geo")]
         public Geo Geo { get; set; }
 
         /// <summary>
         /// Note: This property doesn't exist in the default beer-sample.  For tests we're acting as if it exists,
         /// and is a list of keys for all beers made by the brewery.
         /// </summary>
-        [JsonProperty("beers")]
+        [JsonPropertyName("beers")]
         public List<string> Beers { get; set; }
     }
 }

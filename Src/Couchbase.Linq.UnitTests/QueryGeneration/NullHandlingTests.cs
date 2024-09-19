@@ -2,7 +2,7 @@
 using System.Linq;
 using Couchbase.Core.IO.Serializers;
 using Moq;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using NUnit.Framework;
 
 namespace Couchbase.Linq.UnitTests.QueryGeneration

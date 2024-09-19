@@ -1,52 +1,52 @@
 ﻿using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Couchbase.Linq.IntegrationTests.Documents
 {
     public class Brewery
     {
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public virtual string Name { get; set; }
 
-        [JsonProperty("city")]
+        [JsonPropertyName("city")]
         public virtual string City { get; set; }
 
-        [JsonProperty("state")]
+        [JsonPropertyName("state")]
         public virtual string State { get; set; }
 
-        [JsonProperty("code")]
+        [JsonPropertyName("code")]
         public virtual string Code { get; set; }
 
-        [JsonProperty("country")]
+        [JsonPropertyName("country")]
         public virtual string Country { get; set; }
 
-        [JsonProperty("phone")]
+        [JsonPropertyName("phone")]
         public virtual string Phone { get; set; }
 
-        [JsonProperty("website")]
+        [JsonPropertyName("website")]
         public virtual string Website { get; set; }
 
-        [JsonProperty("type")]
+        [JsonPropertyName("type")]
         public virtual string Type { get; set; }
 
-        [JsonProperty("updated")]
+        [JsonPropertyName("updated")]
         public virtual DateTime Updated { get; set; }
 
-        [JsonProperty("description")]
+        [JsonPropertyName("description")]
         public virtual string Description { get; set; }
 
-        [JsonProperty("address")]
+        [JsonPropertyName("address")]
         public virtual IList<string> Address { get; set; }
 
-        [JsonProperty("geo")]
+        [JsonPropertyName("geo")]
         public virtual Geo Geo { get; set; }
 
         /// <summary>
         /// Note: This property doesn't exist in the default beer-sample.  For tests we're acting as if it exists,
         /// and is a list of keys for all beers made by the brewery.
         /// </summary>
-        [JsonProperty("beers")]
+        [JsonPropertyName("beers")]
         public virtual IList<string> Beers { get; set; }
     }
 }

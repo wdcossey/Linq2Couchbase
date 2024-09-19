@@ -1,43 +1,43 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Couchbase.Linq.IntegrationTests.Documents
 {
     [Filters.DocumentTypeFilter("beer")]
     public class BeerFiltered
     {
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public virtual string Name { get; set; }
 
-        [JsonProperty("abv")]
+        [JsonPropertyName("abv")]
         public virtual decimal Abv { get; set; }
 
-        [JsonProperty("ibu")]
+        [JsonPropertyName("ibu")]
         public virtual decimal Ibu { get; set; }
 
-        [JsonProperty("srm")]
+        [JsonPropertyName("srm")]
         public decimal Srm { get; set; }
 
-        [JsonProperty("upc")]
+        [JsonPropertyName("upc")]
         public virtual decimal Upc { get; set; }
 
-        [JsonProperty("type")]
+        [JsonPropertyName("type")]
         public virtual string Type { get; set; }
 
-        [JsonProperty("brewery_id")]
+        [JsonPropertyName("brewery_id")]
         public virtual string BreweryId { get; set; }
 
-        [JsonProperty("description")]
+        [JsonPropertyName("description")]
         public virtual string Description { get; set; }
 
-        [JsonProperty("style")]
+        [JsonPropertyName("style")]
         public virtual string Style { get; set; }
 
-        [JsonProperty("category")]
+        [JsonPropertyName("category")]
         public virtual string Category { get; set; }
 
-        [JsonProperty("updated")]
+        [JsonPropertyName("updated")]
         public virtual DateTime Updated { get; set; }
 
         [Key]

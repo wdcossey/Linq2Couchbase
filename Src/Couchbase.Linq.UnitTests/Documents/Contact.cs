@@ -1,35 +1,35 @@
 ﻿using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Couchbase.Linq.UnitTests.Documents
 {
     public sealed class Contact
     {
-        [JsonProperty("age")]
+        [JsonPropertyName("age")]
         public int Age { get; set; }
 
-        [JsonProperty("fname")]
+        [JsonPropertyName("fname")]
         public string FirstName { get; set; }
 
-        [JsonProperty("lname")]
+        [JsonPropertyName("lname")]
         public string LastName { get; set; }
 
-        [JsonProperty("email")]
+        [JsonPropertyName("email")]
         public string Email { get; set; }
 
-        [JsonProperty("hobbies")]
+        [JsonPropertyName("hobbies")]
         public List<string> Hobbies { get; set; }
 
-        [JsonProperty("relation")]
+        [JsonPropertyName("relation")]
         public string Relation { get; set; }
 
-        [JsonProperty("title")]
+        [JsonPropertyName("title")]
         public string Title { get; set; }
 
-        [JsonProperty("type")]
+        [JsonPropertyName("type")]
         public string Type { get; set; }
 
-        [JsonProperty("children")]
+        [JsonPropertyName("children")]
         public List<Child> Children { get; set; }
     }
 

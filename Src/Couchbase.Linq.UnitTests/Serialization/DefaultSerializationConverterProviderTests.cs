@@ -6,7 +6,7 @@ using Couchbase.Core.IO.Serializers;
 using Couchbase.Linq.QueryGeneration;
 using Couchbase.Linq.Serialization;
 using Couchbase.Linq.Serialization.Converters;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using NUnit.Framework;
 
 namespace Couchbase.Linq.UnitTests.Serialization

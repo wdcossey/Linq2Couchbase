@@ -1,19 +1,19 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace Couchbase.Linq.UnitTests.Documents
 {
     public sealed class Child
     {
-        [JsonProperty("age")]
+        [JsonPropertyName("age")]
         public string Age { get; set; }
 
-        [JsonProperty("fname")]
+        [JsonPropertyName("fname")]
         public string FirstName { get; set; }
 
-        [JsonProperty("gender")]
+        [JsonPropertyName("gender")]
         public string Gender { get; set; }
 
-        [JsonProperty("contactId")]
+        [JsonPropertyName("contactId")]
         public string ContactId { get; set; }
     }
 }

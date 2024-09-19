@@ -4,8 +4,8 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace Couchbase.Linq
 {
@@ -16,7 +16,7 @@ namespace Couchbase.Linq
     /// Different date related functions are compatible with different date parts.
     /// For details, see the N1QL documentation.
     /// </remarks>
-    [JsonConverter(typeof(StringEnumConverter))]
+    [JsonConverter(typeof(JsonStringEnumConverter))]
     public enum N1QlDatePart
     {
         /// <summary>

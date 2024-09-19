@@ -1,16 +1,16 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace Couchbase.Linq.IntegrationTests.Documents
 {
     public class Geo
     {
-        [JsonProperty("accuracy")]
+        [JsonPropertyName("accuracy")]
         public virtual string Accuracy { get; set; }
 
-        [JsonProperty("lat")]
+        [JsonPropertyName("lat")]
         public virtual decimal Latitude { get; set; }
 
-        [JsonProperty("lon")]
+        [JsonPropertyName("lon")]
         public virtual decimal Longitude { get; set; }
     }
 }

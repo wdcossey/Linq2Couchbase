@@ -14,7 +14,8 @@ using Couchbase.Linq.Utils;
 using Couchbase.Linq.Versioning;
 using Couchbase.Query;
 using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
+using System.Text.Json.Serialization.Metadata;
 using Remotion.Linq;
 
 namespace Couchbase.Linq.Execution
@@ -183,7 +184,7 @@ namespace Couchbase.Linq.Execution
 #pragma warning disable CS0618 // Type or member is obsolete
             var memberNameResolver = serializer != null ?
                 (IMemberNameResolver)new ExtendedTypeSerializerMemberNameResolver(serializer) :
-                (IMemberNameResolver)new JsonNetMemberNameResolver(JsonConvert.DefaultSettings().ContractResolver);
+                (IMemberNameResolver)new JsonNetMemberNameResolver(new DefaultJsonTypeInfoResolver());
 #pragma warning restore CS0618 // Type or member is obsolete
 
             var methodCallTranslatorProvider = new DefaultMethodCallTranslatorProvider();

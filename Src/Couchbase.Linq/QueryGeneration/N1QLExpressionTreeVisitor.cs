@@ -6,9 +6,10 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 using System.Text;
+using System.Text.Json;
 using Couchbase.Core.IO.Serializers;
 using Couchbase.Linq.QueryGeneration.Expressions;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using Remotion.Linq.Clauses.Expressions;
 using Remotion.Linq.Parsing;
 
@@ -19,15 +20,15 @@ namespace Couchbase.Linq.QueryGeneration
         private static readonly Assembly Mscorlib = typeof(string).GetTypeInfo().Assembly;
 
         private readonly StringBuilder _expression = new StringBuilder();
-        private JsonTextWriter? _jsonConstantWriter;
+        private Utf8JsonWriter? _jsonConstantWriter;
 
         public StringBuilder Expression => _expression;
 
         /// <summary>
         /// <see cref="JsonTextWriter"/> which can serialize a constant as JSON directly to the <see cref="Expression"/>.
         /// </summary>
-        private JsonTextWriter JsonConstantWriter =>
-            _jsonConstantWriter ??= new JsonTextWriter(new StringWriter(_expression, CultureInfo.InvariantCulture));
+        private Utf8JsonWriter JsonConstantWriter =>
+            _jsonConstantWriter ??= new Utf8JsonWriter(new StringWriter(_expression, CultureInfo.InvariantCulture));
 
         public N1QlQueryGenerationContext QueryGenerationContext { get; }
 

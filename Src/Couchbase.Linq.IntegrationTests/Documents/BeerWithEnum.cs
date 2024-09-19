@@ -1,43 +1,43 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Couchbase.Linq.IntegrationTests.Documents
 {
     public class BeerWithEnum
     {
         [Key]
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string Name { get; set; }
 
-        [JsonProperty("abv")]
+        [JsonPropertyName("abv")]
         public decimal Abv { get; set; }
 
-        [JsonProperty("ibu")]
+        [JsonPropertyName("ibu")]
         public decimal Ibu { get; set; }
 
-        [JsonProperty("srm")]
+        [JsonPropertyName("srm")]
         public decimal Srm { get; set; }
 
-        [JsonProperty("upc")]
+        [JsonPropertyName("upc")]
         public decimal Upc { get; set; }
 
-        [JsonProperty("type")]
+        [JsonPropertyName("type")]
         public string Type { get; set; }
 
-        [JsonProperty("brewery_id")]
+        [JsonPropertyName("brewery_id")]
         public string BreweryId { get; set; }
 
-        [JsonProperty("description")]
+        [JsonPropertyName("description")]
         public string Description { get; set; }
 
-        [JsonProperty("style")]
+        [JsonPropertyName("style")]
         public BeerStyle? Style { get; set; }
 
-        [JsonProperty("category")]
+        [JsonPropertyName("category")]
         public string Category { get; set; }
 
-        [JsonProperty("updated")]
+        [JsonPropertyName("updated")]
         public DateTime Updated { get; set; }
     }
 }

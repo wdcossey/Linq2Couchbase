@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Reflection;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Couchbase.Linq.Serialization
 {

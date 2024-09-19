@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace Couchbase.Linq.Metadata
 {
@@ -12,25 +13,25 @@ namespace Couchbase.Linq.Metadata
         /// This can be used to ensure that the document has not been modified
         /// during a mutation, which enforces optimistic concurrency.
         /// </summary>
-        [JsonProperty("cas")]
+        [JsonPropertyName("cas")]
         public double Cas { get; set; }
 
         /// <summary>
         /// SDK specific flags.
         /// </summary>
-        [JsonProperty("flags")]
+        [JsonPropertyName("flags")]
         public int Flags { get; set; }
 
         /// <summary>
         /// Document's unique ID.  Also referred to as the document key.
         /// </summary>
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string Id { get; set; } = null!;
 
         /// <summary>
         /// Information about the type of the document.
         /// </summary>
-        [JsonProperty("type")]
+        [JsonPropertyName("type")]
         public string Type { get; set; } = null!;
 
         /// <summary>
@@ -39,7 +40,7 @@ namespace Couchbase.Linq.Metadata
         /// <returns>JSON string representation of this object.</returns>
         public override string ToString()
         {
-            return JsonConvert.SerializeObject(this);
+            return JsonSerializer.Serialize(this);
         }
     }
 }

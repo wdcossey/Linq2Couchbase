@@ -1,22 +1,22 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Couchbase.Linq.IntegrationTests.Documents
 {
     public class Airport
     {
         [Key]
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public virtual int Id { get; set; }
 
-        [JsonProperty("airportname")]
+        [JsonPropertyName("airportname")]
         public virtual string AirportName { get; set; }
 
-        [JsonProperty("faa")]
+        [JsonPropertyName("faa")]
         public virtual string Faa { get; set; }
 
-        [JsonProperty("type")]
+        [JsonPropertyName("type")]
         public virtual string Type { get; set; }
     }
 }

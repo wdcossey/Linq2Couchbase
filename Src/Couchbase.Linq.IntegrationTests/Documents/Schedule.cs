@@ -1,16 +1,16 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace Couchbase.Linq.IntegrationTests.Documents
 {
     public class Schedule
     {
-        [JsonProperty("day")]
+        [JsonPropertyName("day")]
         public uint Day { get; set; }
 
-        [JsonProperty("utc")]
+        [JsonPropertyName("utc")]
         public string Utc { get; set; }
 
-        [JsonProperty("flight")]
+        [JsonPropertyName("flight")]
         public string Flight { get; set; }
     }
 }

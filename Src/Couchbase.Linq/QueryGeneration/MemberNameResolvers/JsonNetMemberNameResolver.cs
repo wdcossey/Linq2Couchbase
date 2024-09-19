@@ -2,13 +2,15 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Reflection;
-using Newtonsoft.Json.Serialization;
+using System.Text.Json;
+using System.Text.Json.Serialization.Metadata;
+//using Newtonsoft.Json.Serialization;
 
 namespace Couchbase.Linq.QueryGeneration.MemberNameResolvers
 {
     /// <summary>
     /// Implementation of <see cref="IMemberNameResolver"/> which uses a Newtonsoft.Json
-    /// <see cref="IContractResolver"/> to resolve member names.
+    /// <see cref="IJsonTypeInfoResolver"/> to resolve member names.
     /// </summary>
     /// <remarks>
     /// Used for backwards compatibility with older implementations of <see cref="Couchbase.Core.IO.Serializers.ITypeSerializer"/>
@@ -16,9 +18,9 @@ namespace Couchbase.Linq.QueryGeneration.MemberNameResolvers
     /// </remarks>
     internal class JsonNetMemberNameResolver : IMemberNameResolver
     {
-        private readonly IContractResolver _contractResolver;
+        private readonly IJsonTypeInfoResolver _contractResolver;
 
-        public JsonNetMemberNameResolver(IContractResolver contractResolver)
+        public JsonNetMemberNameResolver(IJsonTypeInfoResolver contractResolver)
         {
             _contractResolver = contractResolver ?? throw new ArgumentNullException(nameof(contractResolver));
         }
@@ -30,7 +32,7 @@ namespace Couchbase.Linq.QueryGeneration.MemberNameResolvers
             if (member == null)
                 return false;
 
-            var contract = _contractResolver.ResolveContract(member.DeclaringType);
+            var contract = _contractResolver.GetTypeInfo(member.DeclaringType, JsonSerializerOptions.Default);
 
             if (contract.GetType() == typeof (JsonObjectContract) &&
                 ((JsonObjectContract) contract).Properties.Any(p => p.UnderlyingName == member.Name && !p.Ignored))

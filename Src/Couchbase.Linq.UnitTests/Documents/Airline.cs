@@ -1,5 +1,5 @@
 ﻿
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Couchbase.Linq.UnitTests.Documents
 {
@@ -19,22 +19,22 @@ namespace Couchbase.Linq.UnitTests.Documents
         [JsonIgnore]
         public string Id { get; set; }
 
-        [JsonProperty("type")]
+        [JsonPropertyName("type")]
         public string Type { get; set; }
 
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string Name { get; set; }
 
-        [JsonProperty("iata")]
+        [JsonPropertyName("iata")]
         public string Iata { get; set; }
 
-        [JsonProperty("icao")]
+        [JsonPropertyName("icao")]
         public string Icao { get; set; }
 
-        [JsonProperty("callsign")]
+        [JsonPropertyName("callsign")]
         public string Callsign { get; set; }
 
-        [JsonProperty("country")]
+        [JsonPropertyName("country")]
         public string Country { get; set; }
     }
 }

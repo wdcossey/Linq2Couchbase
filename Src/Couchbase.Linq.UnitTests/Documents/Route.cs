@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Couchbase.Linq.UnitTests.Documents
 {
@@ -7,28 +7,28 @@ namespace Couchbase.Linq.UnitTests.Documents
     {
         public string Id { get; set; }
 
-        [JsonProperty("type")]
+        [JsonPropertyName("type")]
         public string Type { get; set; }
 
-        [JsonProperty("airline")]
+        [JsonPropertyName("airline")]
         public string Airline { get; set; }
 
-        [JsonProperty("airlineid")]
+        [JsonPropertyName("airlineid")]
         public string AirlineId { get; set; }
 
-        [JsonProperty("sourceairport")]
+        [JsonPropertyName("sourceairport")]
         public string SourceAirport { get; set; }
 
-        [JsonProperty("destinationairport")]
+        [JsonPropertyName("destinationairport")]
         public string DestinationAirport { get; set; }
 
-        [JsonProperty("stops")]
+        [JsonPropertyName("stops")]
         public uint Stops { get; set; }
 
-        [JsonProperty("equipment")]
+        [JsonPropertyName("equipment")]
         public string Equipment { get; set; }
 
-        [JsonProperty("schedule")]
+        [JsonPropertyName("schedule")]
         public List<Schedule> Schedule { get; set; }
     }
 

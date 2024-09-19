@@ -5,7 +5,7 @@ using Couchbase.Linq.Extensions;
 using Couchbase.Linq.UnitTests.Documents;
 using Couchbase.Linq.Versioning;
 using Moq;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using NUnit.Framework;
 
 namespace Couchbase.Linq.UnitTests.QueryGeneration

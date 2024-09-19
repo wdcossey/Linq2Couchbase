@@ -4,8 +4,8 @@ using System.Collections.Generic;
 using System.Reflection;
 using Couchbase.Core.IO.Serializers;
 using Couchbase.Linq.Serialization.Converters;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace Couchbase.Linq.Serialization
 {
@@ -24,7 +24,7 @@ namespace Couchbase.Linq.Serialization
         public static TypeBasedSerializationConverterRegistry CreateDefaultRegistry() => new TypeBasedSerializationConverterRegistry
         {
             { typeof(UnixMillisecondsConverter), typeof(UnixMillisecondsSerializationConverter) },
-            { typeof(StringEnumConverter), typeof(StringEnumSerializationConverter<>)}
+            { typeof(JsonStringEnumConverter), typeof(StringEnumSerializationConverter<>)}
         };
 
         /// <summary>

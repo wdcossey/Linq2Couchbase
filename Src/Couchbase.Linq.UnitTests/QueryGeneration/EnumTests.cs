@@ -6,8 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Couchbase.Core;
 using Moq;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
+using System.Text.Json;
 using NUnit.Framework;
 
 namespace Couchbase.Linq.UnitTests.QueryGeneration

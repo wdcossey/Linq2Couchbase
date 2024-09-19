@@ -12,7 +12,7 @@ using Couchbase.Linq.Serialization;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Moq;
-using Newtonsoft.Json.Serialization;
+using System.Text.Json.Serialization;
 
 namespace Couchbase.Linq.UnitTests
 {
